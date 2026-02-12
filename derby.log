@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sun Jan 12 20:32:49 WET 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0194-5c38-1f38-00000a754c08 
+on database directory /home/cssuser/css-dia12/MemoriesFX/data/derby/memoriesdb with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2f4d3709 
+Loaded from file:/home/cssuser/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+java.vendor=Arch Linux
+java.runtime.version=23
+user.dir=/home/cssuser/css-dia12/MemoriesFX
+os.name=Linux
+os.arch=amd64
+os.version=6.12.8-arch1-1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
