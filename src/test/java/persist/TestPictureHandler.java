@@ -45,7 +45,7 @@ class TestPictureHandler {
 		
 		ApplicationSettings settings = new ApplicationSettings();
 		List<Path> pathList = settings.getPaths();
-		String importFileName = pathList.get(0).toString();
+		String importFileName = pathList.get(0).toString().replace('\\', '/');
 		Picture picture = PictureHandler.importPicture(importFileName);
 		String finalpic = picture.getNome().substring(picture.getNome().lastIndexOf("/")+1);
 		String finalpic2 = importFileName.substring(importFileName.lastIndexOf("/")+1);

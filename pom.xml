@@ -65,6 +65,13 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
+                <configuration>
+                    <!-- Os testes usam uma base de dados própria em target/, para não apagar a da aplicação -->
+                    <systemPropertyVariables>
+                        <memoriesfx.db.url>jdbc:derby:target/derby/testdb;create=true</memoriesfx.db.url>
+                        <derby.stream.error.file>target/derby.log</derby.stream.error.file>
+                    </systemPropertyVariables>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -73,6 +80,8 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <!-- O metamodelo JPA (Album_, Picture_, ...) não é usado; gerá-lo falha ao compilar com Maven -->
+                    <proc>none</proc>
                 </configuration>
             </plugin>
             <plugin>

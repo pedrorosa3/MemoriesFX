@@ -10,8 +10,18 @@ import java.util.stream.Stream;
 
 public class ApplicationSettings {
 
-   public static String importFolder = "/home/cssuser/Downloads/FotosParaImportar/";
-   public static final String managedImagesFolder = "/home/cssuser/Desktop/ManagerFotos/";
+   // Pastas relativas à raiz do projeto, para funcionar em qualquer sistema operativo.
+   // Podem ser alteradas com -Dmemoriesfx.importFolder=... e -Dmemoriesfx.managedFolder=...
+   public static String importFolder =
+           folder("memoriesfx.importFolder", "fotos/FotosParaImportar");
+   public static final String managedImagesFolder =
+           folder("memoriesfx.managedFolder", "fotos/ManagerFotos");
+
+   /** Caminho absoluto, sempre com '/' e terminado em '/' (o resto do código assume este formato). */
+   private static String folder(String property, String defaultPath) {
+       String path = System.getProperty(property, defaultPath);
+       return Paths.get(path).toAbsolutePath().normalize().toString().replace('\\', '/') + "/";
+   }
 
     public static final int ThumbnailHeight = 300;
 

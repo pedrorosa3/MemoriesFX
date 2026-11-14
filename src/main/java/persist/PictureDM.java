@@ -47,7 +47,13 @@ public class PictureDM extends ADataMapper<Picture,Long> {
 			
 			TypedQuery<Integer> query = em.createQuery("SELECT MAX(CAST(SUBSTRING(p.data, 7, 4) AS INTEGER)) FROM Picture p",Integer.class);
 			Integer latesteYear = query.getSingleResult();
-			
+
+			// Base de dados sem fotografias: não há ano mais recente
+			if (latesteYear == null) {
+				em.getTransaction().commit();
+				return new HashSet<>();
+			}
+
 			
 			TypedQuery<Picture> picquery = em.createQuery("SELECT p FROM Picture p WHERE CAST(SUBSTRING(p.data, 7, 4) AS INTEGER) = :ano", Picture.class);
 			picquery.setParameter("ano", latesteYear);

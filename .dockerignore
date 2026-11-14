@@ -1,0 +1,9 @@
+target/
+data/
+.git/
+.settings/
+.classpath
+.project
+derby.log
+*.png
+fotos/ManagerFotos/

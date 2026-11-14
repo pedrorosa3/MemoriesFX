@@ -1,1 +1,4 @@
 /target/
+
+# Fotografias e miniaturas geridas pela aplicação (geradas ao importar)
+/fotos/ManagerFotos/

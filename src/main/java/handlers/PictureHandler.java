@@ -68,7 +68,8 @@ public class PictureHandler {
 		Files.copy(Paths.get(importFilename), targetFile, StandardCopyOption.REPLACE_EXISTING);
 		
 		Picture picture = new Picture();
-		picture.setNome(targetFile.toString());
+		// Guardar sempre com '/' (no Windows o Path usa '\'), porque getAppPath e Thumbnails assumem '/'
+		picture.setNome(targetFile.toString().replace('\\', '/'));
 		DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String dataformatada = date.format(formater);
 		picture.setData(dataformatada);
